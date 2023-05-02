@@ -1,0 +1,14 @@
+{
+    "/one": {
+        "target": "http://localhost:3050",
+        "name": "B2C"
+    },
+    "/two": {
+        "target": "http://localhost:3050",
+        "name": "B2C"
+    },
+    "/three": {
+        "target": "http://localhost:3050",
+        "name": "B2C"
+    }
+}
