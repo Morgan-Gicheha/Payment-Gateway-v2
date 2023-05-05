@@ -4,7 +4,7 @@
 */
 const express = require("express");
 const app = express();
-
+app.use(express.json())
 
 const {router: serviceRoutes} = require("./routes/serviceRoutes")
 const {router: registyRoutes} = require("./routes/registryRoutes")
