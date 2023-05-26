@@ -15,6 +15,7 @@ Object.entries(registry).forEach(([path, { ...targetObj }]) => {
             pathRewrite: {
                 [`^/service${path}`]: "",
             },
+            secure: false, // for dev purpose only
         })
     );
 });

@@ -26,22 +26,22 @@ router.post("/", validateRegistryData, (req, res) => {
     // {baseRoute:"four",targetUrl:"http://localhost:3050",configurationIdentity:"name"}
     let response = { status: "" };
     let statusCode = null;
-    const data = req.body
+    const data = req.body;
 
     try {
-        const response = saveToRegistry();
-        response["status"] = "000"
-        response["response"] = response
-        statusCode = 200
+        const serviceResponse = saveToRegistry(data);
+        response["status"] = "000";
+        response["response"] = serviceResponse;
+        statusCode = 200;
     } catch (error) {
-        response["status"] = "091"
-        response["message"] = error.message
-        statusCode = 
-
+        // JSON.parse(jsonString).hasOwnProperty("statusCode");
+        response["status"] = "091";
+        response["message"] = JSON.parse(error.message)["message"] || error.message;
+        statusCode = Number(JSON.parse(error.message)["statusCode"]) || 500;
     }
+    console.log(response);
 
-
-    res.send({"h":"e"})
+    res.status(statusCode).send(response);
 });
 
 module.exports = { router };
